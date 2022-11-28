@@ -1,21 +1,39 @@
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
-        </a>
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <%= link_to "Genialos", root_path, class:"navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto border-bottom border-lg-bottom-0 pt-2 pt-lg-0">
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class:"nav-link active" %>
+        </li>
+      </ul>
 
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="/" class="nav-link px-2 text-secondary">Menu principal</a></li>
-          <li><a href="#" class="nav-link px-2 text-secondary">Ton panier</a></li>
-        </ul>
+<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+  <% if current_user %>
+  <div class="d-flex py-3">
+  <li class="nav-item">
+    <%= link_to "My account", edit_user_registration_path, class:"btn btn-link text-1000 fw-medium order-1 order-lg-0 fw-bold" %>
+  </li>
+    <li class="nav-item">
+    <%= button_to "Sign out", destroy_user_session_path, method: :delete, class:"btn btn-outline-dark rounded-pill order-0 fw-bold"%>
+  </li>
+</div>
+  <% else %>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
-        </form>
+  <div class="d-flex py-3">
+  <li class="nav-item ">
+    <%= link_to "Log in", new_user_session_path, class:"btn btn-link text-1000 fw-medium order-1 order-lg-0 fw-bold" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Sign up", new_user_registration_path, class:"btn btn-outline-danger rounded-pill order-0 fw-bold"  %>
+  </li>
+</div>
+<% end %>
+</ul>
 
-        <div class="text-end">
-            <%= link_to "Se connecter", new_user_session_path, class: "btn" %>
-            <%= link_to "S'inscrire", new_user_registration_path, class: "btn" %>
-        </div>
-      </div>
     </div>
+  </div>
+</nav>
