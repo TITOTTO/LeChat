@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'user/show'
+  resources :profiles do
+    resources :carts, except: [:index, :new, :edit]
+  end
   resources :comments
   resources :articles
   devise_for :users
