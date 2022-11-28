@@ -1,6 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @article %>
+<%= render "formcom", comment: @comment, locals: {article: @article} %>
+<%= render partial: "showcom", locals: {article: @article} %>
+
 
 <div>
   <%= link_to "Edit this article", edit_article_path(@article) %> |
