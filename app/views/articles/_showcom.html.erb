@@ -1,1 +1,4 @@
 <!-- Ici on mettra le template pour afficher un des commentaire avec sa note -->
+<% @article.comments.each do |f| %>
+    <%= f.content %>
+<% end %>
