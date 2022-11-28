@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :commentaires
+  resources :comments
   resources :articles
   devise_for :users
   root to: 'articles#index'
