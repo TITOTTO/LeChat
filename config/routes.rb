@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'user/show'
   resources :comments
   resources :articles
   devise_for :users

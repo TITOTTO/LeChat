@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="row flex-center">
-      <div class="col-lg-6 col-md-5 order-md-1"><%= image_tag "pulp.gif", height: 500, class:"img-fluid" %></div>
+    <div class="row flex-center align-items-center">
+      <div class="col-lg-6 col-md-5 order-md-1 mama"><%= image_tag "chaton.png", height: 500, class:"img-fluid" %></div>
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
           <div class="card border-0 shadow rounded-3 my-5">
             <div class="card-body p-4 p-sm-5">
@@ -21,7 +21,7 @@
 </div>
 
 <div class="d-grid text-center">
-  <%= f.submit "Get new password", class:"btn btn-login btn-danger hover-top border-0 fw-bold text-uppercase mb-3" %>
+  <%= f.submit "Get new password", class:"btn btn-login btn-success hover-top border-0 fw-bold text-uppercase mb-3" %>
 </div>
 
 <% end %>
@@ -29,7 +29,7 @@
 <hr class="my-4">
 <div class="d-flex align-items-center justify-content-center pb-4">
   <p class="mb-0 me-2 text-dark">Don't have an account ?</p>
-<%= link_to "Create new", new_registration_path(resource_name), class:"text-danger fw-bold" %>
+<%= link_to "Create new", new_registration_path(resource_name), class:"text-success fw-bold" %>
 </div>
 
           </div>

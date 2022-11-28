@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :articles
   has_many :comments, as: :commentable
+  
+  # Syntaxe active storage
+  has_one_attached :avatar
 end
