@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_11_28_092641) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +25,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_092641) do
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
+  create_table "carts", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
   create_table "comments", force: :cascade do |t|
     t.text "content"
     t.integer "rate"
@@ -34,6 +42,32 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_092641) do
     t.bigint "user_id"
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "join_table_articles_orders", force: :cascade do |t|
+    t.bigint "article_id", null: false
+    t.bigint "order_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_join_table_articles_orders_on_article_id"
+    t.index ["order_id"], name: "index_join_table_articles_orders_on_order_id"
+  end
+
+  create_table "join_table_items_carts", force: :cascade do |t|
+    t.bigint "article_id", null: false
+    t.bigint "cart_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_join_table_items_carts_on_article_id"
+    t.index ["cart_id"], name: "index_join_table_items_carts_on_cart_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "cart_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_orders_on_cart_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,5 +85,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_092641) do
   end
 
   add_foreign_key "articles", "users"
+
+  add_foreign_key "carts", "users"
+  add_foreign_key "join_table_articles_orders", "articles"
+  add_foreign_key "join_table_articles_orders", "orders"
+  add_foreign_key "join_table_items_carts", "articles"
+  add_foreign_key "join_table_items_carts", "carts"
+  add_foreign_key "orders", "carts"
   add_foreign_key "comments", "users"
+
 end
