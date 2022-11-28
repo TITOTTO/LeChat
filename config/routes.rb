@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
-  get 'join_table_articles_carts/create'
-  get 'join_table_articles_carts/uptdate'
-  get 'join_table_articles_carts/destroy'
-  get 'carts/show'
-  get 'carts/create'
-  get 'carts/uptdate'
-  get 'carts/destroy'
+  resources :join_table_items_carts, only: [:create, :update, :destroy]
+  resources :carts, except: [:index, :new, :edit]
   resources :comments
   resources :articles
   devise_for :users
