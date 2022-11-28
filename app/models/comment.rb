@@ -1,3 +1,4 @@
 class Comment < ApplicationRecord
-    belongs_to :comments, as: :commentable
+    has_many :comments, as: :commentable
+    belongs_to :user
 end
