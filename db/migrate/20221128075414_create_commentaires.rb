@@ -3,6 +3,7 @@ class CreateCommentaires < ActiveRecord::Migration[7.0]
     create_table :commentaires do |t|
       t.text :content
       t.integer :rate
+      t.references :commentable, polymorphic: true
 
       t.timestamps
     end
