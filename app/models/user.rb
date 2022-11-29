@@ -9,4 +9,5 @@ class User < ApplicationRecord
   # Syntaxe active storage
   has_one_attached :avatar
   has_one :cart
+
 end

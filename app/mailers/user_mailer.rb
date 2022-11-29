@@ -2,10 +2,6 @@ class UserMailer < ApplicationMailer
     default from: 'kuaker26@gmail.com'
 
     def participate_email(attendance)
-       @user = User.find(attendance.user_id)
-       @event = Event.find(attendance.event_id)
-       @url = "https://eventbritetest2.herokuapp.com/"
-       mail(to: @user.email, subject: 'Vous êtes inscrit')
     end
  
   
