@@ -31,7 +31,7 @@ body{
     <!-- Shopping cart table -->
     <div class="card">
         <div class="card-header">
-            <h2>Panier du profil <%= @user.id %></h2>
+            <h2>Panier du profil</h2>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -49,6 +49,9 @@ body{
                 <tbody>
                 
                   <tr>
+                  <% @cart.articles.each do |article|%>
+
+                  
                     <td class="p-4">
                       <div class="media align-items-center">
                         <img src="" class="d-block ui-w-40 ui-bordered mr-4" alt="">
@@ -56,15 +59,16 @@ body{
                           <a href="#" class="d-block text-dark">
                         </a>
                           <small>
-                            <span class="text-muted">Race :  </span>merder     
+                            <span class="text-muted">Race de ton chat :  </span><%= article.description %>    
                           </small>
                         </div>
                       </div>
                     </td>
-                    <td class="text-right font-weight-semibold align-middle p-4"><%= @article.price%></td>
+                    <td class="text-right font-weight-semibold align-middle p-4"><%= article.price %></td>
                     <td class="align-middle p-4"><input type="text" class="form-control text-center" value="1"></td>
                     <td class="text-right font-weight-semibold align-middle p-4">$20.55</td>
                     <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
+                    <% end %>
                   </tr>
         
                 </tbody>
@@ -74,17 +78,12 @@ body{
         
             <div class="d-flex flex-wrap justify-content-between align-items-center pb-4">
               <div class="mt-4">
-                <label class="text-muted font-weight-normal">Promocode</label>
-                <input type="text" placeholder="ABC" class="form-control">
-              </div>
-              <div class="d-flex">
-                <div class="text-right mt-4 mr-5">
-                  <label class="text-muted font-weight-normal m-0">Discount</label>
-                  <div class="text-large"><strong>$20</strong></div>
-                </div>
+                <label class="text-muted font-weight-normal">Code Promo</label>
+                <input type="text" placeholder="CHATouN-2023" class="form-control">
+              </div>              
                 <div class="text-right mt-4">
-                  <label class="text-muted font-weight-normal m-0">Total price</label>
-                  <div class="text-large"><strong>$1164.65</strong></div>
+                  <label class="text-muted font-weight-normal m-0">Total</label>
+                  <div class="text-large"><strong><%= article.price %></strong></div>
                 </div>
               </div>
             </div>
