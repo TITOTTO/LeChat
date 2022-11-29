@@ -1,17 +1,41 @@
 <div id="<%= dom_id article %>">
-  <p>
-    <strong>Title:</strong>
+
+
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold"><p>
+    <strong>Nom:</strong>
     <%= article.title %>
-  </p>
+  </p></h1>
+        <p class="col-md-8 fs-4"> <p>
+        <strong>Image:</strong>
+        <%=image_tag"https://download.vikidia.org/vikidia/fr/images/9/9e/Chaton.jpg" %>
+        </p></p>
 
-  <p>
-    <strong>Description:</strong>
-    <%= article.description %>
-  </p>
+      </div>
+    </div>
 
-  <p>
-    <strong>Price:</strong>
-    <%= article.price %>
-  </p>
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+          <h2>Nom de la photo</h2>
+          <p>
+          <strong>Description:</strong>
+          <%= article.description %>
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-light border rounded-3">
+          <h2>Add borders</h2>
+          <p>
+          <strong>Prix:</strong>
+          <%= article.price %>
+          </p>
+          <button class="btn btn-outline-secondary" type="button" href="#">acheter</button>
+        </div>
+      </div>
+    </div>
+
 
 </div>
