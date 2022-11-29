@@ -1,5 +1,7 @@
 class ProfilesController < ApplicationController
 
+  after_action :createcart, only: [:show]
+
   # GET /profiles/1 or /profiles/1.json
   def show
     @user = User.find(params[:id])
@@ -19,6 +21,12 @@ class ProfilesController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @profile.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def createcart
+    if @user.cart == nil
+      Cart.create(user_id: params[:id])
     end
   end
 
