@@ -1,4 +1,4 @@
-<p style="color: green"><%= notice %></p>
+<!--<p style="color: green"><%= notice %></p>
 
 <%= render @article %>
 <%= render "formcom", comment: @comment, locals: {article: @article} %>
@@ -10,4 +10,6 @@
   <%= link_to "Back to articles", articles_path %>
 
   <%= button_to "Destroy this article", @article, method: :delete %>
-</div>
+</div>-->
+
+<%= render "articles/show" %>

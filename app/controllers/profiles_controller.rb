@@ -3,6 +3,10 @@ class ProfilesController < ApplicationController
   after_action :createcart, only: [:show]
 
   # GET /profiles/1 or /profiles/1.json
+  def index
+    @user = User.all
+  end
+
   def show
     @user = User.find(params[:id])
   end
