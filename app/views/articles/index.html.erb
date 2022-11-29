@@ -1,4 +1,8 @@
 <p style="color: green"><%= notice %></p>
+<% if flash[:error] %>
+  <div class="error"><%= flash[:error] %></div>
+<% end %>
+
 
 <h1>Articles</h1>
 

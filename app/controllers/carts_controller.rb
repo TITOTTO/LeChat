@@ -19,7 +19,7 @@ class CartsController < ApplicationController
 
   def rightcart
     if current_user.cart.id != params[:id]
-      flash[:error] = "Qu'est-ce que t'essaie de faire ?"
+      flash[:error] = "C'est pas ton panier !"
       redirect_to root_path
     end
   end
