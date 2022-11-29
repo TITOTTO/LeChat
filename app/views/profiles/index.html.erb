@@ -1,0 +1,4 @@
+<% @user.each do |user|%>
+<%= user.email %>
+<%= link_to user.avatar ,profile_path(user) %>
+<% end %>
