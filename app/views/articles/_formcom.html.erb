@@ -1,16 +1,23 @@
+<div class="container bootdey">
+<div class="col-md-12">
+<section class="panel">
+      <div class="panel-body">
+          <div class="col-md-6">
+
 <%= form_with url: "/comments", method: :post do |form| %>
+
 
   <%= hidden_field_tag :commentable_id, params[:id] %>
   <%= hidden_field_tag :commentable_type, "Article" %>
 
 
   <div>
-    <%= form.label :content, style: "display: block" %>
+    <%= form.label :commentaire, style: "display: block" %>
     <%= form.text_area :content %>
   </div>
 
   <div>
-    <%= form.label :rate, style: "display: block" %>
+    <%= form.label :note, style: "display: block" %>
     <%= form.number_field :rate %>
   </div>
 
@@ -18,3 +25,8 @@
     <%= form.submit %>
   </div>
 <% end %>
+          </div>
+      </div>
+  </section>
+  </div>
+</div>
