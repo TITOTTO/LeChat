@@ -1,9 +1,3 @@
-
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
-
 <div class="container">
 <div class="row flex-center align-items-center">
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -29,8 +23,15 @@
                 </div>
             </div>
         </div>
+        <div class="col-lg-6 col-md-5 order-md-1 mama"><%= image_tag "chaton.png", class:"img-fluid float" %></div>
+    </div>
 
-        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+</div>
+
+
+<div class="container">
+<div class="row flex-center">
+              <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card border-0 shadow rounded-3 my-5">
           <div class="card-body p-4 p-sm-5">
             <h5 class="card-title text-center mb-5 fw-light fs-5">Modifier le mot de passe</h5>
@@ -46,6 +47,7 @@
                           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
                           <% end %>
                         </div> 
+                        <hr class="my-4">   
 
                         <div class="form-floating mb-3">
     <%= f.password_field :password, autofocus:true,autocomplete: "new-password",class:"form-control", id:"floatingInput", placeholder:"" %>
@@ -74,5 +76,28 @@
                 </div>
             </div>
         </div>
-    </div>
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card border-0 shadow rounded-3 my-5">
+          <div class="card-body p-4 p-sm-5">
+            <h5 class="card-title text-center mb-5 fw-light fs-5">Détruire mon compte !</h5>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="text-center mb-3">
+    <%= button_to "Miahaha !", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-dark" %>
+    
+  </div>
+<% end %>
 </div>
+
+</div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
