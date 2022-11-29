@@ -5,6 +5,10 @@ before_action :rightcart, only: [:show]
   def show        
     @user = User.find(params[:profile_id])
     @cart = @user.cart
+    @total = 0
+    @cart.articles.each do |article|
+      @total += article.price
+    end
   end
 
   def create
