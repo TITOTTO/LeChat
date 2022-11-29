@@ -1,0 +1,18 @@
+<% @articles.each do |article| %>
+        <div class="col">
+          <div class="card shadow-sm">
+            <%=image_tag"https://download.vikidia.org/vikidia/fr/images/9/9e/Chaton.jpg"%>
+
+            <div class="card-body">
+              <p class="card-text"> <%= article.description %> </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                <%= link_to "voir cette image", article_path(article), class:"btn btn-primary my-1" %>
+                <%= link_to "ajouter au panier", article_path(article), class:"btn btn-primary my-1" %> 
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <% end %>
