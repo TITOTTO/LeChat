@@ -1,29 +1,53 @@
-<h2>Sign up</h2>
-
+<div class="container">
+<div class="row flex-center align-items-center">
+      <div class="col-lg-6 col-md-5 order-md-1 mama"><%= image_tag "chaton.png", class:"img-fluid float" %></div>
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card border-0 shadow rounded-3 my-5">
+          <div class="card-body p-4 p-sm-5">
+            <h5 class="card-title text-center mb-5 fw-light fs-5">Sign Up</h5>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="d-flex mb-3">
+  <p class="mb-0 me-2 text-dark">Welcome to Potitchat.com 🐱</p>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="form-floating mb-3">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", id:"floatingInput", placeholder:"" %>
+    <%= f.label "Email adress", for:"floatingInput" %>
+    
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="form-floating mb-3">
+    <%= f.password_field :password, autocomplete: "new-password", class:"form-control", id:"floatingInput", placeholder:"" %>
+    <%= f.label "Password (6 characters minimum)", for:"floatingInput" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="form-floating mb-3">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", id:"floatingInput", placeholder:"" %>
+    <%= f.label "Password confirmation", for:"floatingInput" %>
   </div>
+
+  <div class="d-grid text-center">
+    <%= f.submit "Sign up", class:"btn btn-login btn-success hover-top border-0 fw-bold text-uppercase mb-3" %>
+</div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<hr class="my-4">
+
+<div class="d-flex align-items-center justify-content-center pb-4">
+  <p class="mb-0 me-2 text-dark">Already have an account ?</p>
+<%= link_to "Log in", new_session_path(resource_name),class:"text-success fw-bold" %>
+</div>
+
+</div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

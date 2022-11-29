@@ -1,4 +1,5 @@
 class Cart < ApplicationRecord
-  belongs_to :user, optional: true
-  has_many :join_table_items_carts, dependent: :nullify
+  belongs_to :user
+  has_many :cartfulls
+  has_many :articles, through: :cartfulls
 end

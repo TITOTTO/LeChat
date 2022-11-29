@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :join_table_items_carts, only: [:create, :update, :destroy]
-  resources :carts, except: [:index, :new, :edit]
+  resources :profiles do
+    resources :carts, except: [:index, :new, :edit]
+    resources :avatars, only: [:create, :destroy]
+  end
   resources :comments
   resources :articles
   devise_for :users
