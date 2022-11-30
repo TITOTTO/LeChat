@@ -1,8 +1,7 @@
 class UserMailer < ApplicationMailer
 
-    def participate_email(attendance)
-    end
-   default from: 'noreply@cat-e-store.com'
+
+   default from: 'spbl@outlook.fr'
  
    def welcome_email(user)
      @user = user
