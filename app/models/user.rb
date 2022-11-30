@@ -11,15 +11,8 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_one :cart
 
-<<<<<<< HEAD
-end
-=======
-
-
-
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
   end
 
 end
->>>>>>> c49db2774ccde6824bc5838a3d1418393ff98f78
