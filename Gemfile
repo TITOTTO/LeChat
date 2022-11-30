@@ -8,6 +8,7 @@ gem 'table_print'
 gem 'faker'
 
 gem 'bcrypt'
+gem 'stripe'
 
 gem 'devise'
 
