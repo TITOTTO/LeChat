@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  
+
+  resources :orders, only: [:new, :create]
+
   resources :profiles do
     resources :carts, except: [:index, :new, :edit]
     resources :avatars, only: [:create, :destroy]
