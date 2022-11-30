@@ -1,7 +1,7 @@
 <h1>Orders#new</h1>
 
-<h1>Bienvenue sur ma page de paiement, <%= @user.email %> !</h1>
-<p>Vous avez choisi le produit <%= @article.title %>.</p>
+<h1>Bienvenue sur ma page de paiement, <%= current_user.email %> !</h1>
+<p>Vous nous avez bien khalass .</p>
 <%= form_tag orders_path do %>
   <article>
     <% if flash[:error].present? %>
@@ -10,14 +10,9 @@
       </div>
     <% end %>
     <label class="amount">
-      <span>Son prix est de : <%= @amount %> €</span>
+      <span>Son prix est de : 500 €</span>
     </label>
   </article>
   <br/>
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-  data-description="Achat d'un produit"
-  data-amount=<%= @stripe_amount %>
-  data-currency="eur"
-  data-locale="auto"></script>
+ 
 <% end %>

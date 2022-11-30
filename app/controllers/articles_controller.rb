@@ -1,9 +1,10 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show edit update destroy ]
+  before_action :createcart, only: [:index]
 
   # GET /articles or /articles.json
   def index
-    puts params
+    puts current_user.id
     @articles = Article.all
   end
 
@@ -58,6 +59,14 @@ class ArticlesController < ApplicationController
       format.html { redirect_to articles_url, notice: "Article was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def createcart
+    if user_signed_in?
+      if current_user.cart == nil
+        Cart.create(user_id: current_user.id)
+      end
+    end 
   end
 
   private

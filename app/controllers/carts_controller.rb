@@ -1,9 +1,8 @@
 class CartsController < ApplicationController
-before_action :rightcart, only: [:show]
+  before_action :rightcart, only: [:show]
 
 
   def show    
-    
     @user = User.find(params[:profile_id])
 
     @cart = @user.cart

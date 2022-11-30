@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   def create
 
     @cart = current_user.cart
-    @amount = (@cart.total * 100).to_i
+    @amount = 500
   
     customer = Stripe::Customer.create({
       email: params[:stripeEmail],
@@ -19,10 +19,16 @@ class OrdersController < ApplicationController
       currency: 'eur',
     })
     
-    @order = Order.create(stripe_customer_id: customer.id, user_id: current_user.id)
+    @order = Order.create(cart_id: current_user.id)
 
 
-    @cart_articles.destroy_all
+    current_user.cart.cartfulls.each do |x|
+      if x.cart.id == current_user.cart.id
+        x.destroy
+      end
+    end
+
+    redirect_to new_order_path
     
   rescue Stripe::CardError => e
     flash[:error] = e.message
