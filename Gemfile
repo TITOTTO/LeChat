@@ -8,6 +8,7 @@ gem 'table_print'
 gem 'faker'
 
 gem 'bcrypt'
+gem 'stripe'
 
 gem 'devise'
 
@@ -15,7 +16,6 @@ gem 'dotenv-rails'
 
 gem 'sendgrid-ruby'
 
-gem 'stripe'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
