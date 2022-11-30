@@ -1,7 +1,7 @@
 <% @articles.each do |article| %>
-        <div class="col">
+        <div class="cols ">
           <div class="card shadow-sm">
-            <%=image_tag"https://download.vikidia.org/vikidia/fr/images/9/9e/Chaton.jpg"%>
+            <%=image_tag"https://thecatapi.com/api/images/get?format=src&type=jpg"%>
 
             <div class="card-body">
               <p class="card-text"> <%= article.title %> </p>
