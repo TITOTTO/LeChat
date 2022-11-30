@@ -2,16 +2,19 @@ class CartsController < ApplicationController
 before_action :rightcart, only: [:show]
 
 
-  def show        
+  def show    
+    
     @user = User.find(params[:profile_id])
+
     @cart = @user.cart
     @total = 0
     @cart.articles.each do |article|
-      @total += article.price
+      @total += article.price    
     end
   end
 
   def create
+    
   end
 
   def uptdate
@@ -29,5 +32,4 @@ before_action :rightcart, only: [:show]
     redirect_to root_path
    end
 end
-
 end

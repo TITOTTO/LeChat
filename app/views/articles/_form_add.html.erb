@@ -1,0 +1,11 @@
+<%= form_with url: "/cartfull", method: :post do |form| %>
+
+
+  <%= hidden_field_tag :article_id, article.id %>
+  <%= hidden_field_tag :cart_id, current_user.cart.id %>
+  
+
+  <div>
+    <%= form.submit "Ajouter article" %>
+  </div>
+<% end %>
