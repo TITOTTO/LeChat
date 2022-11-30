@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  
   resources :profiles do
     resources :carts, except: [:index, :new, :edit]
     resources :avatars, only: [:create, :destroy]
   end
+  resources :cartfull  
   resources :comments
   resources :articles
   devise_for :users

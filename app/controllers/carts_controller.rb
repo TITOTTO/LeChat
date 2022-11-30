@@ -2,16 +2,19 @@ class CartsController < ApplicationController
 before_action :rightcart, only: [:show]
 
 
-  def show        
+  def show    
+    
     @user = User.find(params[:profile_id])
+
     @cart = @user.cart
     @total = 0
     @cart.articles.each do |article|
-      @total += article.price
+      @total += article.price    
     end
   end
 
   def create
+    
   end
 
   def uptdate
@@ -20,14 +23,6 @@ before_action :rightcart, only: [:show]
   def destroy
   end
 
-<<<<<<< HEAD
-  def rightcart
-    if current_user.cart.id != params[:id]
-      flash[:error] = "C'est pas ton panier !"
-      redirect_to root_path
-    end
-  end
-=======
 
  def rightcart 
   
@@ -38,5 +33,4 @@ before_action :rightcart, only: [:show]
    end
 end
   
->>>>>>> c49db2774ccde6824bc5838a3d1418393ff98f78
 end
