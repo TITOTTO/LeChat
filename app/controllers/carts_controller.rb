@@ -20,14 +20,6 @@ before_action :rightcart, only: [:show]
   def destroy
   end
 
-<<<<<<< HEAD
-  def rightcart
-    if current_user.cart.id != params[:id]
-      flash[:error] = "C'est pas ton panier !"
-      redirect_to root_path
-    end
-  end
-=======
 
  def rightcart 
   
@@ -37,6 +29,5 @@ before_action :rightcart, only: [:show]
     redirect_to root_path
    end
 end
-  
->>>>>>> c49db2774ccde6824bc5838a3d1418393ff98f78
+
 end
