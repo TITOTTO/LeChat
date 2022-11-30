@@ -3,12 +3,13 @@ class ArticlesController < ApplicationController
 
   # GET /articles or /articles.json
   def index
+    puts params
     @articles = Article.all
   end
 
   # GET /articles/1 or /articles/1.json
   def show
-    puts current_user.id
+    @article = Article.find(params[:id])
   end
 
   # GET /articles/new
