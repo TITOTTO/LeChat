@@ -1,5 +1,4 @@
 class UserMailer < ApplicationMailer
-    
 
     def participate_email(attendance)
     end

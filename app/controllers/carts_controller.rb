@@ -32,5 +32,4 @@ before_action :rightcart, only: [:show]
     redirect_to root_path
    end
 end
-  
 end
