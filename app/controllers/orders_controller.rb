@@ -21,14 +21,11 @@ class OrdersController < ApplicationController
     
     @order = Order.create(stripe_customer_id: customer.id, user_id: current_user.id)
 
-    @order_articles = @cart_articles.each do |article|
-      JoinTableOrderArticle.create(article_id: article.id, order_id: @order.id)
-    end
-    
+
     @cart_articles.destroy_all
     
   rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to new_charge_path
+    redirect_to new_order_path
   end
 end
