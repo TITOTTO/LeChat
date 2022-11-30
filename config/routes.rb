@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'cartfull/create'
   resources :profiles do
     resources :carts, except: [:index, :new, :edit]
     resources :avatars, only: [:create, :destroy]
