@@ -4,7 +4,6 @@ class ArticlesController < ApplicationController
 
   # GET /articles or /articles.json
   def index
-    puts current_user.id
     @articles = Article.all
   end
 
